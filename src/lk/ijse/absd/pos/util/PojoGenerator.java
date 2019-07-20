@@ -15,6 +15,7 @@ public class PojoGenerator {
         String id = customer.getString("id");
         String name = customer.getString("name");
         String address = customer.getString("address");
+        System.out.println(id);
         return new CustomerDTO(id,name,address);
     }
 

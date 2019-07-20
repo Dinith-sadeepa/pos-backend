@@ -9,6 +9,8 @@ import lk.ijse.absd.pos.util.PojoGenerator;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -83,12 +85,12 @@ public class CustomerServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         try {
-            String cid = req.getParameter("cid");
-            if (cid == null) {
+            String id = req.getParameter("id");
+            if (id == null) {
                 resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer ID is missing !");
                 return;
             }
-            boolean delete = customerService.deleteCustomer(cid);
+            boolean delete = customerService.deleteCustomer(id);
             if (delete) {
                 resp.setStatus(200);
                 JsonObject forCommonResponse = new JsonResponseGenerator()
