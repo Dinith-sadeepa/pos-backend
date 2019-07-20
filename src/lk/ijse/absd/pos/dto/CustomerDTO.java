@@ -8,6 +8,10 @@ public class CustomerDTO {
     public CustomerDTO() {
     }
 
+    public CustomerDTO(String id) {
+        this.id = id;
+    }
+
     public CustomerDTO(String id, String name, String address) {
         this.id = id;
         this.name = name;

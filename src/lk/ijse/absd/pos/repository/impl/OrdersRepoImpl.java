@@ -15,6 +15,7 @@ public class OrdersRepoImpl implements OrdersRepo {
 
     public OrdersRepoImpl() {
         ServletContext servletContext = ContextListener.getServletContext();
+        assert servletContext != null;
         if (servletContext.getAttribute("pool") != null) {
             pool = (DataSource) servletContext.getAttribute("pool");
         }
